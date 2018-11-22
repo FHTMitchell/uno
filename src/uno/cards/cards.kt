@@ -12,7 +12,7 @@ sealed class Card(open val value: Int?, open val color: Color?, open val effect:
         Effect.WILD, Effect.WILD_DRAW4 -> 50
     }
 
-    fun canPlaceOn(other: Card): Boolean {
+    infix fun canPlaceOn(other: Card): Boolean {
         return (this is WildCard) ||
                 (this.color == other.color) ||
                 (other is WildCard && this.color == other.chosenColor) ||

@@ -61,7 +61,7 @@ class Game(val players: List<Player>) {
             val newCard = takeCard()
             return if (newCard == null) {
                 null
-            } else if (newCard.canPlaceOn(topCard)) {
+            } else if (newCard canPlaceOn topCard) {
                 move(player, newCard)
             } else {
                 player.pickup(newCard)

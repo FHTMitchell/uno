@@ -32,13 +32,13 @@ class Player(val name: String, val saveMoves: Boolean = false, val chooseWildCol
     // methods
 
     private fun validPlays(topCard: Card): List<Card> =
-        this.hand.filter { it.canPlaceOn(topCard) }
+        this.hand.filter { it canPlaceOn topCard }
 
     fun canPlay(topCard: Card): Boolean =
         this.validPlays(topCard).isNotEmpty()
 
     fun playCard(card: Card, topCard: Card) {
-        if (card.canPlaceOn(topCard)) {
+        if (card canPlaceOn topCard) {
             if (saveMoves) {
                 this.savedMoves.add(Move(hand.toList(), card, topCard))
                 this.hand.remove(card)
